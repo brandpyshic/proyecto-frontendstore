@@ -1,0 +1,266 @@
+@import url(normalize.css);
+@import url('https://fonts.googleapis.com/css2?family=Zen+Loop&display=swap');
+
+/* custom propperties, valores que podemos reutilizar */
+
+:root {
+    --primario: #F0D9E7;
+    --secundario: #FF94CC;
+    --morado: #A239EA;
+    --azul: #5C33F6;
+    --fuentePrincipal: 'Zen Loop', cursive;;
+}
+
+/* ESTILOS GENERALES */
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    background-color: var(--morado);
+    font-size: 1.6rem;
+    line-height: 1.5;
+}
+
+p {
+    font-size: 1.8rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    width: 100%;
+}
+
+.contenedor {
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+h1, h2, h3 {
+    text-align: center;
+    color: var(--primario);
+
+}
+
+h1 {font-size: 4rem;}
+
+h2 {font-size: 3.2rem;}
+
+h3 {font-size: 2.4rem;}
+
+.header {
+    display: flex;
+    justify-content: center;
+}
+
+.header__logo {margin: 3rem 0;}
+
+.navegacion {
+    background-color: var(--primario);
+    padding: 1rem 0;
+    display: flex;
+    justify-content: center;
+    /* gap sirve para dar espaciado */
+    gap: 2rem;
+}
+
+.navegacion__enlace {
+    font-size: 2.5rem;
+    font-family: var(--fuentePrincipal);
+    font-weight: bold;
+}
+
+.navegacion__enlace:hover {color: var(--azul);}
+
+/* CONTENIDO PRINCIPAL */
+
+/* GRID */
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.producto {padding: 1rem;}
+
+.producto:hover {background-color: var(--secundario);}
+
+.producto__nombre {
+    font-size: 3.5rem;
+    color: var(--primario);
+}
+
+.producto__precio {
+    font-size: 2.5rem;
+    color: var(--primario);
+}
+
+.producto__nombre,
+.producto__precio {
+    font-family: var(--fuentePrincipal);
+    margin: 1rem 0;
+    text-align: center;
+    line-height: 1.2;
+
+}
+
+.grafico {
+    min-height: 30rem;
+    /* no se repita la imagen */
+    background-repeat: no-repeat;
+    /* llene todo el espacio disponible */
+    background-size: cover;
+    grid-column: 1/3;
+}
+
+.grafico--camisas {
+    grid-row: 2/3;
+    background-image: url(../img/grafico1.jpg);
+}
+
+.grafico--node {
+    background-image: url(../img/grafico2.jpg);
+    grid-row: 8/9;
+}
+
+@media (min-width: 768px) {
+    .grafico--node {
+        grid-row: 5/6;
+        grid-column: 2/4;
+    }
+}
+
+/* SECCION SOBRE NOSOTROS */
+
+.nosotros {
+    display: grid;
+    grid-template-rows: repeat(2, auto);
+}
+
+@media (min-width: 768px) {
+    .nosotros {
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 2rem;
+    }    
+}
+
+.nosotros__imagen {
+    grid-row: 1/2;
+}
+
+@media (min-width: 768px) {
+    .nosotros__imagen {
+        grid-column: 2/3;
+    }
+}
+
+.nosotros__texto {color: #fff;}
+
+.bloques {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .bloques {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.bloque {
+    background-color: rgba(0, 0, 255, .1);
+    border-radius: 1rem;
+    text-align: center;
+}
+
+.bloque__texto {color:var(--primario);}
+
+.bloque__titulo {margin: 0;}
+
+/* PAGINA DEL PRODUCTO */
+
+@media (min-width: 768px) {
+    .camisa {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 2rem;
+    }
+}
+
+.camisa__contenido--texto {
+    color: var(--primario);
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+@media (min-width: 768px) {
+    .formulario {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+}
+
+.formulario__campo {
+    border: 1rem solid var(--secundario);
+    background-color: transparent;
+    color: var(--primario);
+    font-size: 2rem;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 1rem;
+}
+
+.formulario__submit {
+    border: none;
+    font-size: 2rem;
+    font-family: var(--fuentePrincipal);
+    padding: 2rem;
+    background-color: var(--secundario);
+    font-weight: bold;
+    border-radius: 1.5rem;
+    transition: background-color .3s ease;
+    grid-column: 1/3;
+}
+
+.formulario__submit:hover {
+    cursor: pointer;
+    background-color: var(--azul);
+    color: var(--primario);
+}
+
+/* FOOTER */
+
+.footer {
+    background-color: var(--primario);
+    padding: 1rem 0;
+    margin-top: 2rem;
+}
+
+.footer__texto {
+    font-family: var(--fuentePrincipal);
+    font-weight: bold;
+    text-align: center;
+    font-size: 2rem;
+}
